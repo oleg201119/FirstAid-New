@@ -1,0 +1,103 @@
+/* Cordova ****************************************************************** */
+
+/** {*/
+    /*-webkit-tap-highlight-color: rgba(0,0,0,0);  make transparent link selection, adjust last value opacity 0 to 1.0 */
+/*}*/
+
+body {
+    -webkit-touch-callout: none;                 /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;              /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                   /* prevent copy paste, to allow, change 'none' to 'text' */
+    /* background-color:#E4E4E4;  */
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+/* WFA Footer Navigation **************************************************** */
+
+.wfaapp-footer-nav .ui-btn .ui-btn-inner {
+    padding-top: 40px !important;
+}
+
+.wfaapp-footer-nav .ui-btn .ui-icon {
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: -15px !important;
+    box-shadow: none !important;
+    border-radius: 0 0 0 0 !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -webkit-border-radius: none !important;
+}
+
+.emergency-icon .ui-icon {
+    background: url(images/glyphish/184-warning.png) no-repeat 50% 50%;
+    background-size: 24px 19px;
+}
+
+.cpr-icon .ui-icon {
+    background: url(images/glyphish/29-heart.png) no-repeat 50% 50%;
+    background-size: 24px 21px;
+}
+
+.protocols-icon .ui-icon {
+    background: url(images/glyphish/96-book.png) no-repeat 50% 50%;
+    background-size: 18px 26px;
+}
+
+.wildernesskit-icon .ui-icon {
+    background: url(images/glyphish/79-medical-bag.png) no-repeat 50% 50%;
+    background-size: 24px 20px;
+}
+
+/* WFA Content ************************************************************** */
+
+/* Protocol */
+#protocol-content {
+
+}
+#protocol-content-name {
+
+}
+#protocol-content-comments {
+
+}
+#protocol-content-symptomslist {
+
+}
+#protocol-content-evacuate {
+
+}
+
+/* Medication */
+#wildernesskit-medication-content-paragraph {
+
+}
+#wildernesskit-medication-content-class {
+
+}
+#wildernesskit-medication-content-name {
+
+}
+#wildernesskit-medication-content-classification {
+
+}
+#wildernesskit-medication-content-indication {
+
+}
+#wildernesskit-medication-content-contraindication {
+
+}
+#wildernesskit-medication-content-sideeffect {
+
+}
+#wildernesskit-medication-content-dose {
+
+}
+#wildernesskit-medication-content-brandnames {
+
+}

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link rel="stylesheet" href="library/jquery-mobile/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/wfaapp.css" />
+
+        <!--
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        -->
+
+        <script src="library/jquery/jquery-1.11.1.min.js"></script>
+        <script src="library/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+
+        <title>Wilderness First Aid</title>
+    </head>
+
+    <body>
+      <!-- Protocols -->
+      <div id="protocols-page" data-role="page" data-title="Protocols">
+          <div data-role="content">
+              <ul id="protocols-content-list" data-role="listview" data-inset="true" data-filter="false" data-divider-theme="d">
+                  <li data-role="list-divider"><a href="#about-page" data-role="button" data-rel="dialog" data-transition="none" data-mini="true" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">About</a> Protocols</li>
+              </ul>
+          </div>
+          <div data-role="footer" data-position="fixed" data-theme="b">
+              <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
+                  <ul>
+                      <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom" >Emergency</a></li>
+                      <li><a href="#cpr-1" data-transition="none" data-rel="dialog" class="cpr-icon" data-icon="custom">CPR</a></li>
+                      <li><a href="#protocols-page" data-transition="none" class="protocols-icon ui-btn-active ui-state-persist" data-icon="custom">Protocols</a></li>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none" class="wildernesskit-icon" data-icon="custom">Wilderness Kit</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div id="about-page" data-role="page" data-title="About">
+          <div data-role="header" data-theme="b"><h3></h3></div>
+          <div data-role="content">
+              <h3>Disclaimer</h3>
+              <!-- TODO: create a model and load this text from json -->
+              <p>It is the responsibility of the reader to take a wilderness first aid or equivalent training course. The information contained in this book is not intended as a substitution for a course or practical experience. To the fullest extent of the law, neither the Author nor the Publisher assumes any liability for any injury, disability, death and / or damage to persons or property resulting from any use or operation of any methods, products, instructions or ideas contained in the material herein.</p>
+              <h3>Introduction to this App</h3>
+              <p>
+                  People who work, live, travel, and recreate in the outdoors have specialized medical needs not adequately fulfilled by traditional first aid. Remote locations, arduous conditions, paucity of diagnostic and therapeutic equipment, and a need to make critical decisions often without outside communication have led to development of wilderness medicine as a specialty, and specialized wilderness first aid courses. This book is to be used as a guide to augment the skills and training learned in a typical wilderness first aid course. The intention is to assist the lay public, outdoor professionals, instructors, and members of wilderness first aid classes with useful and helpful information that is within the scope of practice of their training. Some elective skills are included, which the individual can decide to include in their armamentarium as based on their comfort level and specific training.
+                  <br/><br>
+                  This book is written for those who have basic first aid knowledge, not necessarily those with advanced degrees in medicine or pre-hospital care. The American Heart Association have limited components of their resuscitation curriculum, recognizing that some tasks may be difficult for laypersons to competently perform. Similarly, this book acknowledges that certain knowledge and procedures are outside the scope of the wilderness first aid provider’s knowledge, and limits the use of technical terms or advanced techniques that may be unfamiliar to some readers or impractical based on the wilderness setting. This book provides easy-to-follow protocols and instructions to assist those encountering most wilderness emergencies.
+                  <br/><br>
+                  While the contents of this book are meant to assist in managing a medical emergency in a remote environment; the information is generalizable to any setting where the reader is first on the scene. The protocols contained in this book are to be used as guidelines. The protocols described here are by no means a substitution for common sense or definitive medical care. A rescuer is liable for his or her own actions and should never undertake a medical procedure he or she feels uncomfortable with or is not absolutely necessary, unless the rescuer believes the victim may lose their life or limb without intervention.
+                  <br/><br>
+                  All medicines discussed in this app can be purchased over the counter or through a physician’s prescription. Consult with a doctor concerning the potential side effects, complications, or contra-indications of any medications you carry. Similarly, ensure that there are no known allergies to the medicines you use.
+                  <br/><br>
+                  Travel in the wilderness is an inherently risky activity, as one often travels to remote locations for the solitude and serenity provided. Ultimately, the ethos of self-reliance found in the backcountry is epitomized by a wilderness medical emergency. Be prepared by taking a wilderness first aid or equivalent training course. These protocols assume knowledge and implementation of patient assessment systems, which should not be ignored when acting on these protocols. Familiarize yourself with these protocols before venturing into the backcountry, to minimize the chances that an accident will have to be an emergency.
+                  <br/><br>
+                  Figure 1. Danger Signal
+                  <br/><br>
+                  This danger symbol next to the "red flags" of a patient's symptoms serves as an indicator of a dangerous disease process, which may necessitate imminent evacuation to definitive medical care. If any of these “red flags” are observed, start early preparations for a potential evacuation. Consideration of the terrain, time of day, and weather are all potential issues in expediting a timely evacuation.
+                  <br/><br>
+                  Figure 2. Evacuate sign
+                  <br/><br>
+                  This helicopter symbol next to the “evacuate” assumes a medical emergency that requires a higher level of care via Emergency Medical Services (EMS). All evacuations assume the emergency is taking place in a backcountry setting where communication is likely not possible. The severity of the emergency, the potential for the patient to decompensate, the availability (or lack thereof) of outside communication, and the logistical and timely constraints of a rescue versus self-evacuation all need to be taken into account. If patients are able to ambulate on their own without endangering themselves or others, self-evacuation may be a quicker and better option in the wilderness environment. If a victim is unable to walk, or you expect that the ability to ambulate may shortly become compromised, you should likely send for a rescue. If the decision is made to send a messenger to initiate an EMS rescue, two people (buddy system) are better than one to ensure the safe delivery of both the message and messengers.
+                  <br/><br>
+                  If the user of this app is unsure of the necessity of an evacuation, err on the side of caution. “When in doubt, get out.”
+              </p>
+              <a href="#protocols-page" data-transition="none" data-role="button" data-inline="true" data-icon="arrow-l" data-iconpos="left">Back</a>
+          </div>
+      </div>
+
+      <div id="protocol-page" data-role="page" data-title="Protocol">
+          <div id="protocol-header" data-role="header" data-position="fixed" data-theme="b">
+              <a href="#protocols-page" data-icon="arrow-l" data-rel="back" data-transition="none">Back</a>
+              <h1><div id="protocol-header-title"></div></h1>
+          </div>
+          <div id="protocol-content" data-role="content">
+              <div id="protocol-content-name"></div>
+              <div id="protocol-content-comments"></div>
+              <div id="protocol-content-symptomslist"></div>
+              <div id="protocol-content-evacuate"></div>
+          </div>
+      </div>
+
+      <!-- Wilderness Kit -->
+      <!-- Medications -->
+      <div id="wildernesskit-medications-page" data-role="page" data-title="Wilderness Kit - Medications">
+          <div data-role="header" data-theme="b">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none" class="ui-btn-active ui-state-persist">Medications</a></li>
+                      <li><a href="#wildernesskit-firstaid-page" data-transition="none">First Aid</a></li>
+                      <li><a href="#wildernesskit-survival-page" data-transition="none">Survival</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div data-role="content">
+              <div id="wildernesskit-medications-information" data-role="collapsible"></div>
+              <ul id="wildernesskit-medications-list" data-role="listview" data-inset="true" data-divider-theme="d"></ul>
+          </div>
+          <div data-role="footer" data-position="fixed" data-theme="b">
+              <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
+                  <ul>
+                      <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom" >Emergency</a></li>
+                      <li><a href="#cpr-1" data-transition="none" data-rel="dialog" class="cpr-icon" data-icon="custom">CPR</a></li>
+                      <li><a href="#protocols-page" data-transition="none" class="protocols-icon" data-icon="custom">Protocols</a></li>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none" class="wildernesskit-icon ui-btn-active ui-state-persist" data-icon="custom">Wilderness Kit</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div id="wildernesskit-medication-page" data-role="page" data-title="Wilderness Kit - Medications">
+          <div data-role="header" data-theme="b">
+              <a href="#wildernesskit-medications-page" data-icon="arrow-l" data-rel="back" data-transition="none">Back</a>
+              <h1><div id="wildernesskit-medication-header-title"></div></h1>
+          </div>
+          <div id="wildernesskit-medication-content" data-role="content">
+              <div id="wildernesskit-medication-content-paragraph">
+                  <div id="wildernesskit-medication-content-class"></div>
+                  <div id="wildernesskit-medication-content-name"></div>
+                  <div id="wildernesskit-medication-content-classification"></div>
+                  <div id="wildernesskit-medication-content-indication"></div>
+                  <div id="wildernesskit-medication-content-contraindication"></div>
+                  <div id="wildernesskit-medication-content-sideeffect"></div>
+                  <div id="wildernesskit-medication-content-dose"></div>
+                  <div id="wildernesskit-medication-content-brandnames"></div>
+              </div>
+          </div>
+      </div>
+
+      <!-- First Aid -->
+      <div id="wildernesskit-firstaid-page" data-role="page" data-title="Wilderness Kit - First Aid">
+          <div data-role="header" data-theme="b">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none">Medications</a></li>
+                      <li><a href="#wildernesskit-firstaid-page" data-transition="none" class="ui-btn-active ui-state-persist">First Aid</a></li>
+                      <li><a href="#wildernesskit-survival-page" data-transition="none">Survival</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div data-role="content">
+              <div data-role="fieldcontain">
+                  <fieldset id="wildernesskit-firstaid-checklist"></fieldset>
+              </div>
+          </div>
+          <div data-role="footer" data-position="fixed" data-theme="b">
+              <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
+                  <ul>
+                      <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom">Emergency</a></li>
+                      <li><a href="#cpr-1" data-transition="none" data-rel="dialog" class="cpr-icon" data-icon="custom">CPR</a></li>
+                      <li><a href="#protocols-page" data-transition="none" class="protocols-icon" data-icon="custom">Protocols</a></li>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none" class="wildernesskit-icon ui-btn-active ui-state-persist" data-icon="custom">Wilderness Kit</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Survival -->
+      <div id="wildernesskit-survival-page" data-role="page" data-title="Wilderness Kit - Survival">
+          <div data-role="header" data-theme="b">
+              <div data-role="navbar">
+                  <ul>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none">Medications</a></li>
+                      <li><a href="#wildernesskit-firstaid-page" data-transition="none">First Aid</a></li>
+                      <li><a href="#wildernesskit-survival-page" data-transition="none" class="ui-btn-active ui-state-persist">Survival</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div data-role="content">
+              <div data-role="fieldcontain">
+                  <fieldset id="wildernesskit-survival-checklist"></fieldset>
+              </div>
+          </div>
+          <div data-role="footer" data-position="fixed" data-theme="b">
+              <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
+                  <ul>
+                      <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom">Emergency</a></li>
+                      <li><a href="#cpr-1" data-transition="none" data-rel="dialog" class="cpr-icon" data-icon="custom">CPR</a></li>
+                      <li><a href="#protocols-page" data-transition="none" class="protocols-icon" data-icon="custom">Protocols</a></li>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none" class="wildernesskit-icon ui-btn-active ui-state-persist" data-icon="custom">Wilderness Kit</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- Emergency -->
+      <div id="emergency-page" data-role="page" data-title="Emergency">
+          <div data-role="header"></div>
+          <div id="emergency-page-content" data-role="content"></div>
+          <div data-role="footer" data-position="fixed" data-theme="b">
+              <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
+                  <ul>
+                      <li><a href="#emergency-page" data-transition="none" class="emergency-icon ui-btn-active ui-state-persist" data-icon="custom">Emergency</a></li>
+                      <li><a href="#cpr-1" data-transition="none" data-rel="dialog" class="cpr-icon" data-icon="custom">CPR</a></li>
+                      <li><a href="#protocols-page" data-transition="none" class="protocols-icon" data-icon="custom">Protocols</a></li>
+                      <li><a href="#wildernesskit-medications-page" data-transition="none" class="wildernesskit-icon" data-icon="custom">Wilderness Kit</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <!-- CPR -->
+      <div id="cpr-1" data-role="page" data-title="CPR">
+          <div data-role="header" data-theme="b" data-overlay-theme="c"><span class="ui-title"></span></div>
+          <div data-role="content">
+              <p>
+                  <form>
+                      <fieldset data-role="controlgroup">
+                          <input type="checkbox" name="checkbox-scenesafe" id="checkbox-scenesafe">
+                          <label for="checkbox-scenesafe">Is the scene safe?</label>
+                          <input type="checkbox" name="checkbox-unresponsive" id="checkbox-unresponsive">
+                          <label for="checkbox-unresponsive">Tap and shout, “Are you okay?”</label>
+                          <input type="checkbox" name="checkbox-notok" id="checkbox-notok">
+                          <label for="checkbox-notok">Look, listen, and feel for responsiveness</label>
+                          <!-- TODO: add 8 second timer to this step -->
+                          <!-- TODO: continue if all checkboxes checked -->
+                      </fieldset>
+                  </form>
+              </p>
+              <p>
+                  <a href="#cpr-2" data-role="button" data-transition="none" data-rel="dialog" data-inline="false" data-icon="arrow-r" data-iconpos="right">Continue</a>
+              </p>
+          </div>
+      </div>
+
+      <div id="cpr-2" data-role="page" data-title="CPR">
+          <div data-role="header" data-theme="b"><span class="ui-title"></span></div>
+          <div data-role="content">
+              <p>
+                  <form>
+                      <fieldset data-role="controlgroup">
+                          <input type="checkbox" name="checkbox-911" id="checkbox-911">
+                          <label for="checkbox-911">Call or tell someone to contact 911</label>
+                          <input type="checkbox" name="checkbox-dnr" id="checkbox-dnr">
+                          <label for="checkbox-dnr">Ensure there is no clear Do Not Resuscitate (DNR) status</label>
+                          <input type="checkbox" name="checkbox-aed" id="checkbox-aed">
+                          <label for="checkbox-aed">Scan surroundings for an AED, use it if available<br/><img src="images/aed.gif" width="25%"></label>
+                      </fieldset>
+                  </form>
+              </p>
+              <p>
+                  <a href="#cpr-3" data-role="button" data-transition="none" data-rel="dialog" data-inline="false" data-icon="arrow-r" data-iconpos="right">Continue</a>
+              </p>
+          </div>
+      </div>
+
+      <div id="cpr-3" data-role="page" data-title="CPR">
+          <div data-role="header" data-theme="b"><span class="ui-title"></span></div>
+          <div data-role="content">
+              <p>
+                  <h2>Are you trained to give rescue breaths?</h2>
+              </p>
+              <p>
+                  <a href="#cpr-lay-1" onclick="startCPR(false);" data-role="button" data-transition="none" data-rel="dialog" data-inline="true" data-icon="delete" data-iconpos="left">No</a>
+                  <a href="#cpr-train-1" data-role="button" data-transition="none" data-rel="dialog" data-inline="true" data-icon="check" data-iconpos="right">Yes</a>
+              </p>
+          </div>
+      </div>
+
+      <div id="cpr-lay-1" data-role="page" data-title="CPR">
+          <div data-role="content">
+              <p>
+                  <form>
+                      <fieldset data-role="controlgroup">
+                          <input type="checkbox" name="checkbox-vibrate" id="checkbox-vibrate">
+                          <label for="checkbox-vibrate">Your phone is now vibrating at the rate you should provide compressions (100 per minute)</label>
+                          <input type="checkbox" name="checkbox-center" id="checkbox-center">
+                          <label for="checkbox-center">Find the center of the patients chest<br/><img src="media/lrtvstrxbm/011.large.jpg" width="100%"></label>
+                          <input type="checkbox" name="checkbox-position" id="checkbox-position">
+                          <label for="checkbox-position">Position your body over the patients chest, extend your arms to provide 2" inch deep compressions<br/><img src="media/lrtvstrxbm/013.large.jpg" width="100%"></label>
+                          <input type="checkbox" name="checkbox-pocket" id="checkbox-pocket">
+                          <label for="checkbox-pocket">Put device in pocket and begin compressions</label>
+                      </fieldset>
+                  </form>
+              </p>
+              <p>
+                  <a href="#protocols-page" onclick="stopCPR();" data-transition="none" data-role="button" data-inline="true" data-icon="delete" data-iconpos="right">Stop</a>
+              </p>
+              <p>
+                  <form>
+                      <fieldset data-role="controlgroup">
+                          <input type="checkbox" name="checkbox-recovery" id="checkbox-recovery">
+                          <label for="checkbox-recovery">If patient becomes response, place in recovery position<br/><img src="media/lrtvstrxbm/009.large.jpg" width="100%"></label>
+                      </fieldset>
+                  </form>
+              </p>
+          </div>
+          <!-- TODO: on `back` stopCPR(); -->
+      </div>
+
+      <div id="cpr-train-1" data-role="page" data-title="CPR">
+          <div data-role="header" data-theme="b"><span class="ui-title"></span></div>
+          <div data-role="content">
+              <p>
+              <form>
+                  <fieldset data-role="controlgroup">
+                      <input type="checkbox" name="checkbox-headtilt" id="checkbox-headtilt">
+                      <label for="checkbox-headtilt">Airway: Head tilt, chin lift and clear airway<br/><img src="media/lrtvstrxbm/003.large.jpg" width="100%"></label>
+                      <input type="checkbox" name="checkbox-breathing" id="checkbox-breathing">
+                      <label for="checkbox-breathing">Breathing: Look and listen for breathing</label>
+                      <input type="checkbox" name="checkbox-circulation" id="checkbox-circulation">
+                      <label for="checkbox-circulation">Circulation: Check for a pulse<br/><img src="media/lrtvstrxbm/007.large.jpg" width="100%"></label>
+                      <input type="checkbox" name="checkbox-spine" id="checkbox-spine">
+                      <label for="checkbox-spine">Decide / Disability: Consider the MOI and decide early the necessity for spinal immobilization<br/><img src="media/lrtvstrxbm/008.large.jpg" width="100%"></label>
+                  </fieldset>
+              </form>
+              </p>
+              <p>
+                  <a href="#cpr-train-2" onclick="startCPR(true);" data-role="button" data-transition="none" data-rel="dialog" data-inline="false" data-icon="arrow-r" data-iconpos="right">Continue</a>
+              </p>
+          </div>
+      </div>
+
+      <div id="cpr-train-2" data-role="page" data-title="CPR">
+          <div data-role="content">
+              <p>
+                  <form>
+                      <fieldset data-role="controlgroup">
+                          <input type="checkbox" name="checkbox-vibrate2" id="checkbox-vibrate2">
+                          <label for="checkbox-vibrate2">Your phone is now vibrating at the rate you should provide compressions (100 per minute)</label>
+                          <input type="checkbox" name="checkbox-beep2" id="checkbox-beep2">
+                          <label for="checkbox-beep2">Your phone will beep when you should provide rescue breaths (2 breaths every 30 compressions)</label>
+                          <input type="checkbox" name="checkbox-center2" id="checkbox-center2">
+                          <label for="checkbox-center2">Find the center of the patients chest<br/><img src="media/lrtvstrxbm/011.large.jpg" width="100%"></label>
+                          <input type="checkbox" name="checkbox-position2" id="checkbox-position2">
+                          <label for="checkbox-position2">Position your body over the patients chest, extend your arms to provide 2" inch deep compressions<br/><img src="media/lrtvstrxbm/013.large.jpg" width="100%"></label>
+                          <input type="checkbox" name="checkbox-pocket2" id="checkbox-pocket2">
+                          <label for="checkbox-pocket2">Put device in pocket and begin compressions</label>
+                      </fieldset>
+                  </form>
+              </p>
+              <p>
+                  <a href="#protocols-page" onclick="stopCPR();" data-transition="none" data-role="button" data-inline="true" data-icon="delete" data-iconpos="right">Stop</a>
+              </p>
+              <p>
+                  <form>
+                      <fieldset data-role="controlgroup">
+                          <input type="checkbox" name="checkbox-recovery2" id="checkbox-recovery2">
+                          <label for="checkbox-recovery2">If patient becomes response, place in recovery position<br/><img src="media/lrtvstrxbm/009.large.jpg" width="100%"></label>
+                      </fieldset>
+                  </form>
+              </p>
+          </div>
+      </div>
+
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/wfaapp.js"></script>
+      <script type="text/javascript" src="js/custom.js"></script>
+    </body>
+</html>
