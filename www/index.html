@@ -28,17 +28,13 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
         <link rel="stylesheet" href="library/jquery-mobile/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" type="text/css" href="css/wfaapp.css" />
-
-        <!--
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        -->
 
         <script src="library/jquery/jquery-1.11.1.min.js"></script>
         <script src="library/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
@@ -50,14 +46,30 @@
       <!-- Protocols -->
       <div id="protocols-page" data-role="page" data-title="Protocols">
           <div data-role="content">
-              <ul id="protocols-content-list" data-role="listview" data-inset="true" data-filter="false" data-divider-theme="d">
-                  <li data-role="list-divider"><a href="#about-page" data-role="button" data-rel="dialog" data-transition="none" data-mini="true" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true">About</a> Protocols</li>
+              <ul id="protocols-content-list" data-role="listview" data-inset="true" data-filter="false" data-divider-theme="a">
+                  <li data-role="list-divider" class="list-divider-protocols">
+                    <a href="#about-page" class="link-icon" data-role='button'data-icon='gear'  data-rel="dialog" data-transition="none" data-mini='true' data-iconpos='notext' data-inline='true' data-theme='a'></a>
+
+                    <div class="link-wrapper">
+                      <a href="#about-page" class="link-text" data-rel="dialog" data-transition="none">Test</a>
+                    </div>
+
+                    <!--
+
+                    <a href="#about-page" data-role='button' data-mini='true' data-inline='true' >Protocols</a>
+                  -->
+                    <!--
+                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-check">check</button>
+                    <a href="#" class="ui-icon-gear ui-btn-icon-notext ui-corner-all">No text</a>test
+                    <a href="#about-page" class="ui-btn ui-icon-delete" data-rel="dialog" data-transition="none" data-mini="true" data-icon="gear" data-iconpos="notext" data-theme="c" data-inline="true"></a>About Protocols
+                  -->
+                  </li>
               </ul>
           </div>
-          <div data-role="footer" data-position="fixed" data-theme="b">
+          <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
                   <ul>
-                      <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom" >Emergency</a></li>
+                      <li><a href="tel: 911" data-transition="none" class="emergency-icon" data-icon="custom" >Emergency</a></li>
                       <li><a href="#cpr-1" data-transition="none" data-rel="dialog" class="cpr-icon" data-icon="custom">CPR</a></li>
                       <li><a href="#protocols-page" data-transition="none" class="protocols-icon ui-btn-active ui-state-persist" data-icon="custom">Protocols</a></li>
                       <li><a href="#wildernesskit-medications-page" data-transition="none" class="wildernesskit-icon" data-icon="custom">Wilderness Kit</a></li>
@@ -99,7 +111,7 @@
       </div>
 
       <div id="protocol-page" data-role="page" data-title="Protocol">
-          <div id="protocol-header" data-role="header" data-position="fixed" data-theme="b">
+          <div id="protocol-header" data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <a href="#protocols-page" data-icon="arrow-l" data-rel="back" data-transition="none">Back</a>
               <h1><div id="protocol-header-title"></div></h1>
           </div>
@@ -114,7 +126,7 @@
       <!-- Wilderness Kit -->
       <!-- Medications -->
       <div id="wildernesskit-medications-page" data-role="page" data-title="Wilderness Kit - Medications">
-          <div data-role="header" data-theme="b">
+          <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div data-role="navbar">
                   <ul>
                       <li><a href="#wildernesskit-medications-page" data-transition="none" class="ui-btn-active ui-state-persist">Medications</a></li>
@@ -127,7 +139,7 @@
               <div id="wildernesskit-medications-information" data-role="collapsible"></div>
               <ul id="wildernesskit-medications-list" data-role="listview" data-inset="true" data-divider-theme="d"></ul>
           </div>
-          <div data-role="footer" data-position="fixed" data-theme="b">
+          <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
                   <ul>
                       <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom" >Emergency</a></li>
@@ -160,7 +172,7 @@
 
       <!-- First Aid -->
       <div id="wildernesskit-firstaid-page" data-role="page" data-title="Wilderness Kit - First Aid">
-          <div data-role="header" data-theme="b">
+          <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div data-role="navbar">
                   <ul>
                       <li><a href="#wildernesskit-medications-page" data-transition="none">Medications</a></li>
@@ -174,7 +186,7 @@
                   <fieldset id="wildernesskit-firstaid-checklist"></fieldset>
               </div>
           </div>
-          <div data-role="footer" data-position="fixed" data-theme="b">
+          <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
                   <ul>
                       <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom">Emergency</a></li>
@@ -188,7 +200,7 @@
 
       <!-- Survival -->
       <div id="wildernesskit-survival-page" data-role="page" data-title="Wilderness Kit - Survival">
-          <div data-role="header" data-theme="b">
+          <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div data-role="navbar">
                   <ul>
                       <li><a href="#wildernesskit-medications-page" data-transition="none">Medications</a></li>
@@ -202,7 +214,7 @@
                   <fieldset id="wildernesskit-survival-checklist"></fieldset>
               </div>
           </div>
-          <div data-role="footer" data-position="fixed" data-theme="b">
+          <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
                   <ul>
                       <li><a href="#emergency-page" data-transition="none" class="emergency-icon" data-icon="custom">Emergency</a></li>
@@ -218,7 +230,7 @@
       <div id="emergency-page" data-role="page" data-title="Emergency">
           <div data-role="header"></div>
           <div id="emergency-page-content" data-role="content"></div>
-          <div data-role="footer" data-position="fixed" data-theme="b">
+          <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
               <div class="wfaapp-footer-nav" data-role="navbar" data-grid="c">
                   <ul>
                       <li><a href="#emergency-page" data-transition="none" class="emergency-icon ui-btn-active ui-state-persist" data-icon="custom">Emergency</a></li>
@@ -279,7 +291,7 @@
           <div data-role="header" data-theme="b"><span class="ui-title"></span></div>
           <div data-role="content">
               <p>
-                  <h2>Are you trained to give rescue breaths?</h2>
+                  <h3>Are you trained to give rescue breaths?</h3>
               </p>
               <p>
                   <a href="#cpr-lay-1" onclick="startCPR(false);" data-role="button" data-transition="none" data-rel="dialog" data-inline="true" data-icon="delete" data-iconpos="left">No</a>

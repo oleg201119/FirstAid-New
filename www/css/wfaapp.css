@@ -10,7 +10,6 @@ body {
     -webkit-user-select: none;                   /* prevent copy paste, to allow, change 'none' to 'text' */
     /* background-color:#E4E4E4;  */
     font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size: 12px;
     height: 100%;
     margin: 0px;
     padding: 0px;
@@ -19,11 +18,11 @@ body {
 
 /* WFA Footer Navigation **************************************************** */
 
-.wfaapp-footer-nav .ui-btn .ui-btn-inner {
+.wfaapp-footer-nav .ui-btn {
     padding-top: 40px !important;
 }
 
-.wfaapp-footer-nav .ui-btn .ui-icon {
+.wfaapp-footer-nav .ui-icon-custom:after {
     width: 30px !important;
     height: 30px !important;
     margin-left: -15px !important;
@@ -34,25 +33,46 @@ body {
     -webkit-border-radius: none !important;
 }
 
-.emergency-icon .ui-icon {
+.emergency-icon:after {
     background: url(images/glyphish/184-warning.png) no-repeat 50% 50%;
     background-size: 24px 19px;
 }
 
-.cpr-icon .ui-icon {
+.cpr-icon:after {
     background: url(images/glyphish/29-heart.png) no-repeat 50% 50%;
     background-size: 24px 21px;
 }
 
-.protocols-icon .ui-icon {
+.protocols-icon:after {
     background: url(images/glyphish/96-book.png) no-repeat 50% 50%;
     background-size: 18px 26px;
 }
 
-.wildernesskit-icon .ui-icon {
+.wildernesskit-icon:after {
     background: url(images/glyphish/79-medical-bag.png) no-repeat 50% 50%;
     background-size: 24px 20px;
+    text-decoration: none;
 }
+
+.list-divider-protocols .link-wrapper {
+  margin-left: 10px;
+  height: 29px;
+  float: left;
+}
+
+.list-divider-protocols .link-text {
+  height: 29px;
+  display: table-cell;
+  vertical-align:middle;
+  text-decoration: none;
+  color: #333 !important;
+}
+
+.list-divider-protocols .link-icon {
+  border-radius: 1em !important;
+  float: left;
+}
+
 
 /* WFA Content ************************************************************** */
 

@@ -7,6 +7,7 @@ $(document).bind('mobileinit', function () {
 
 // Keep footer visible at all times
 $(document).on('pageinit', ':jqmData(role=page)', function() {
+    // Replaced by data-tap-toggle="false" for each fixed nav
     // $(this).find(':jqmData(role=header)').fixedtoolbar( { tapToggle: false } );
     // $(this).find(':jqmData(role=footer)').fixedtoolbar( { tapToggle: false } );
 });
@@ -82,6 +83,7 @@ $(document).ready(function () {
     wfaApp.populateProtocols();
     wfaApp.populateWildernessKit();
 
+    // It seems the followings are not need.
     // $.mobile.loadpage( '#wildernesskit-medications-page' );
     // $.mobile.loadpage( '#wildernesskit-firstaid-page' );
     // $.mobile.loadpage( '#wildernesskit-survival-page' );
