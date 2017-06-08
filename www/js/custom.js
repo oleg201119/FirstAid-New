@@ -31,7 +31,7 @@ function startCPR(isTrained) {
 
 function stayAlive() {
     console.log('compression');
-    navigator.notification.vibrate(100);
+    navigator.vibrate(100);
 }
 
 function giveBreath() {
